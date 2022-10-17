@@ -10,4 +10,9 @@ function setup() {
 
 function draw(){
     background(0)
+    mostraBolinha()
 }
+
+function mostraBolinha(){
+    circle(xBolinha,yBolinha,diametro)
+  }
