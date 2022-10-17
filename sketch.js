@@ -19,6 +19,10 @@ let xRaqueteOponente = 585
 let yRaqueteOponente = 150
 let velocidadeYOponente;
 
+// Variáveis de pontos
+let meusPontos = 0;
+let pontosDoOponente = 0;
+
 let colidiu = false;
 
 function setup() {
@@ -28,7 +32,7 @@ function setup() {
   function draw() {
     background(0);
     mostraBolinha()
-    movimentaBolinha()
+    //movimentaBolinha()
     verificaColisaoBorda()
     mostraRaquete(xRaquete, yRaquete)
     mostraRaquete(xRaqueteOponente, yRaqueteOponente)
@@ -36,6 +40,7 @@ function setup() {
     verificaColisaoRaquete(xRaquete, yRaquete)
     verificaColisaoRaquete(xRaqueteOponente, yRaqueteOponente)
     movimentaRaqueteOponente()
+    incluiPlacar()
   }
 
 function mostraBolinha(){
@@ -84,4 +89,10 @@ function verificaColisaoRaquete(x,y){
 function movimentaRaqueteOponente(){
     velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteComprimento / 2 - 30
     yRaqueteOponente += velocidadeYOponente
+}
+
+function incluiPlacar(){
+    fill(255);
+    text(meusPontos, 200, 26);
+    text(pontosDoOponente,400, 26)
 }
