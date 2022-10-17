@@ -14,6 +14,8 @@ let  raqueteAltura = 90
 let velocidadeXBolinha = 6
 let velocidadeYBolinha = 6
 
+let colidiu = false;
+
 function setup() {
     createCanvas(600, 400);
   }
@@ -25,7 +27,8 @@ function setup() {
     verificaColisaoBorda()
     mostraRaquete()
     movimentaRaquete()
-    verificaColisaoRaquete()
+    //verificaColisaoRaquete()
+    colisaoMinhaRaqueteBiblioteca()
   }
 
 function mostraBolinha(){
@@ -67,5 +70,13 @@ function verificaColisaoRaquete(){
     if (xBolinha - raio < xRaquete + raqueteComprimento &&
        yBolinha - raio < yRaquete + raqueteAltura && yBolinha + raio > yRaquete){
       velocidadeXBolinha *= -1
+    }
+  }
+
+function colisaoMinhaRaqueteBiblioteca(){
+    colidiu = 
+    collideRectCircle(xRaquete,yRaquete,raqueteComprimento,raqueteAltura,xBolinha,yBolinha,raio)
+    if (colidiu){
+       velocidadeXBolinha *= -1
     }
   }
