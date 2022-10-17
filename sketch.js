@@ -32,7 +32,7 @@ function setup() {
   function draw() {
     background(0);
     mostraBolinha()
-    //movimentaBolinha()
+    movimentaBolinha()
     verificaColisaoBorda()
     mostraRaquete(xRaquete, yRaquete)
     mostraRaquete(xRaqueteOponente, yRaqueteOponente)
@@ -40,7 +40,9 @@ function setup() {
     verificaColisaoRaquete(xRaquete, yRaquete)
     verificaColisaoRaquete(xRaqueteOponente, yRaqueteOponente)
     movimentaRaqueteOponente()
-    incluiPlacar()
+    incluiPlacar(meusPontos, 200, 26)
+    incluiPlacar(pontosDoOponente, 400, 26)
+    validarPontos()
   }
 
 function mostraBolinha(){
@@ -91,8 +93,17 @@ function movimentaRaqueteOponente(){
     yRaqueteOponente += velocidadeYOponente
 }
 
-function incluiPlacar(){
+function incluiPlacar(pontos, x, y){
     fill(255);
-    text(meusPontos, 200, 26);
-    text(pontosDoOponente,400, 26)
+    text(pontos, x, y);
+}
+
+function validarPontos(){
+    if(xBolinha > 590){
+        meusPontos += 1;
+    }
+
+    if(xBolinha < 10){
+        pontosDoOponente += 1;
+    }
 }
